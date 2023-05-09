@@ -5,6 +5,7 @@ on:
     paths:
       - "scrapper/**"
       - ".github/workflows/**"
+      - "pom.xml"
 
 permissions:
   packages: write

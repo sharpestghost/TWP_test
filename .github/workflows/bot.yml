@@ -8,8 +8,8 @@ on:
       - 'hw7'
     paths:
       - "bot/**"
-        - ".github/workflows/**"
-
+      - ".github/workflows/**"
+      - "pom.xml"
 jobs:
   build:
     runs-on: ubuntu-latest
