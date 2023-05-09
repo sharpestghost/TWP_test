@@ -21,7 +21,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
-          cache: maven
 
       - name: Build scrapper app
         run: mvn package -pl scrapper -am
