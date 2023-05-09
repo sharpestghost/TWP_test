@@ -1,5 +1,8 @@
 package ru.tinkoff.edu.service.updaters;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.client.BotClient;
@@ -8,11 +11,6 @@ import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.service.LinkChatService;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
-//temp class
 @Service
 @RequiredArgsConstructor
 public class BotUpdater {

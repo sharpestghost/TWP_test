@@ -1,19 +1,16 @@
 package ru.tinkoff.edu.client;
 
+import java.time.Duration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 import ru.tinkoff.edu.dto.response.QuestionResponse;
 import ru.tinkoff.edu.dto.response.QuestionsResponse;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
 
-import java.time.Duration;
-import java.time.ZoneOffset;
-import java.util.Date;
-import java.util.List;
 
 public class StackOverflowClient {
     private static final String STACKOVERFLOW_URL = "https://api.stackexchange.com/2.3/questions/";
     private final WebClient webClient;
+    public static final long SECONDS_FOR_UPDATE = 30;
 
     public StackOverflowClient() {
         webClient = returnBaseClient();
@@ -40,7 +37,7 @@ public class StackOverflowClient {
                         .build())
                 .retrieve()
                 .bodyToMono(QuestionsResponse.class)
-                .timeout(Duration.ofSeconds(10))
+                .timeout(Duration.ofSeconds(SECONDS_FOR_UPDATE))
                 .block();
         return response.items().get(0);
     }
