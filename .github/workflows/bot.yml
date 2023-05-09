@@ -16,7 +16,9 @@ env:
   IMAGE_NAME: bot
   AUTHOR: sharpestghost
 
-#
+permissions:
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,7 +33,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Build bot app
-        run: mvn package -pl bot-app -am
+        run: mvn package -pl bot -am
 
       - name: Build Docker image
         run: docker build -f bot/Dockerfile -t ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}:latest .
