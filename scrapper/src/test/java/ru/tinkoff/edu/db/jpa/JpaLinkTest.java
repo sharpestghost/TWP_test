@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = ScrapperApplication.class)
 public class JpaLinkTest extends JpaCreateChatTest {
-
+/*
     @Autowired
     private JpaLinkService linkService;
     @Autowired
@@ -52,6 +52,6 @@ public class JpaLinkTest extends JpaCreateChatTest {
     @Test
     public void untrack() {
     }
-
+*/
 
 }

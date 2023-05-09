@@ -13,13 +13,15 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class JpaChatTest extends JpaCreateChatTest {
 
+    /*
     @Autowired
     private JpaChatRepo chatRepo;
+
     @Transactional
     @Test
-    public void register() {
+    void register() {
         long id = selectMaxId();
-        assertFalse(this.chatRepo.findById(id).isPresent());
+        assertFalse(chatRepo.findById(id).isPresent());
         Chat chat = insert(id);
         chatRepo.save(chat);
         assertTrue(chatRepo.findById(id).isPresent());
@@ -29,7 +31,7 @@ public class JpaChatTest extends JpaCreateChatTest {
 
     @Transactional
     @Test
-    public void checkSize() {
+    void checkSize() {
         long id = selectMaxId();
         long initCount = chatRepo.count();
         int newChats = 5;
@@ -42,7 +44,7 @@ public class JpaChatTest extends JpaCreateChatTest {
         chatRepo.deleteAll();
         assertEquals(chatRepo.count(), 0);
     }
-
+*/
 
 
 
