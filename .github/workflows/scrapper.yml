@@ -3,9 +3,10 @@ name: Scr CI
 on:
   push:
     paths:
-      - "bot/**"
+      - "scrapper/**"
       - ".github/workflows/**"
       - "pom.xml"
+      - "checkstyle.xml"
     paths-ignore:
       - "scrapper/src/main/java/ru/tinkoff/edu/domain"
 
