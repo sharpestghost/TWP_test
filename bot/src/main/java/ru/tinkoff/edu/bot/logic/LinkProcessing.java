@@ -4,21 +4,26 @@ import java.net.URI;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LinkProcessing {
-    private static final Set<URI> links = new HashSet<>();
+public final class LinkProcessing {
+
+    private static final Set<URI> URIS = new HashSet<>();
+
+    private LinkProcessing() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
 
     public static void add(URI link) throws RuntimeException {
-        if (links.contains(link)) {
+        if (URIS.contains(link)) {
             throw new RuntimeException("This link is already added");
         }
-        links.add(link);
+        URIS.add(link);
     }
 
     public static void remove(URI link) throws RuntimeException {
-        if (!links.contains(link)) {
+        if (!URIS.contains(link)) {
             throw new RuntimeException("This link is not in the tracked list");
         }
-        links.remove(link);
+        URIS.remove(link);
     }
 
     public static URI validate(String msg) throws RuntimeException {
@@ -29,7 +34,7 @@ public class LinkProcessing {
         }
     }
 
-    public static Set<URI> getLinks() {
-        return links;
+    public static Set<URI> getUris() {
+        return URIS;
     }
 }

@@ -1,12 +1,11 @@
 package ru.tinkoff.edu.controller;
 
+import java.util.Arrays;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ru.tinkoff.edu.scrapperlink.dto.response.ApiErrorResponse;
 import ru.tinkoff.edu.exception.InvalidRequestException;
-
-import java.util.Arrays;
+import ru.tinkoff.edu.scrapperlink.dto.response.ApiErrorResponse;
 
 public class BotErrorHandlingController {
 
