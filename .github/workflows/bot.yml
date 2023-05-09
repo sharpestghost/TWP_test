@@ -48,4 +48,4 @@ jobs:
         run: docker build -f bot/Dockerfile -t ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}:latest .
 
       - name: Push image
-        run: docker push ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}:latest .
+        run: docker push ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}:latest
