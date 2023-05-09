@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "scrapper/**"
-      - ".github/workflows/bot.yml"
+      - ".github/workflows/scrapper.yml"
 
 permissions:
   packages: write
