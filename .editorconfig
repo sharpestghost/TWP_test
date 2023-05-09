@@ -5,7 +5,7 @@ charset = utf-8
 tab_width = 4
 indent_size = 4
 indent_style = space
-max_line_length = 120
+max_line_length = 140
 insert_final_newline = true
 trim_trailing_whitespace = true
 ij_continuation_indent_size = 4
@@ -61,17 +61,6 @@ ij_java_keep_blank_lines_between_package_declaration_and_header = 1
 ij_java_keep_blank_lines_in_code = 1
 ij_java_keep_blank_lines_in_declarations = 1
 
-ij_java_doc_do_not_wrap_if_one_line = true
-ij_java_doc_indent_on_continuation = true
-ij_java_doc_keep_empty_parameter_tag = false
-ij_java_doc_keep_empty_return_tag = false
-ij_java_doc_keep_empty_throws_tag = false
-
-[*.{bat,cmd,ps1}]
-end_of_line = crlf
-
-[*.sh]
-end_of_line = lf
 
 [*.md]
 trim_trailing_whitespace = false
