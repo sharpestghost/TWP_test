@@ -2,6 +2,10 @@ name: Scr CI
 
 on:
   push:
+    paths:
+      - "bot/**"
+      - ".github/workflows/**"
+      - "pom.xml"
 
 env:
   REGISTRY: ghcr.io
