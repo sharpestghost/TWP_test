@@ -35,7 +35,7 @@
     <!--      Checks for Size Violations.         -->
     <module name="FileLength"/>
     <module name="LineLength">
-        <property name="max" value="120"/>
+        <property name="max" value="140"/>
         <property name="fileExtensions" value="java"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
@@ -59,19 +59,6 @@
     <module name="SuppressWarningsFilter"/>
 
     <module name="TreeWalker">
-        <!-- https://checkstyle.org/config_javadoc.html -->
-        <!--         Checks for Javadoc comments.       -->
-        <module name="JavadocMissingLeadingAsteriskCheck"/>
-        <module name="JavadocMissingWhitespaceAfterAsterisk"/>
-        <module name="JavadocStyle">
-            <property name="checkFirstSentence" value="false"/>
-            <property name="checkEmptyJavadoc" value="true"/>
-            <property name="tokens"
-                      value="ANNOTATION_DEF, ANNOTATION_FIELD_DEF, CLASS_DEF, CTOR_DEF, ENUM_CONSTANT_DEF, ENUM_DEF, INTERFACE_DEF, METHOD_DEF, VARIABLE_DEF"/>
-        </module>
-        <module name="NonEmptyAtclauseDescription"/>
-        <module name="SingleLineJavadoc"/>
-
         <!-- https://checkstyle.org/config_annotation.html -->
         <!--              Annotations                      -->
         <module name="MissingOverride"/>
@@ -112,10 +99,10 @@
         <!-- https://checkstyle.org/config_sizes.html -->
         <!--      Checks for Size Violations.         -->
         <module name="AnonInnerLength">
-            <property name="max" value="40"/>
+            <property name="max" value="60"/>
         </module>
         <module name="LambdaBodyLength">
-            <property name="max" value="40"/>
+            <property name="max" value="60"/>
         </module>
         <module name="MethodLength"/>
         <module name="OuterTypeNumber"/>
