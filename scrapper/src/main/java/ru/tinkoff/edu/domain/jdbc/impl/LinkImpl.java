@@ -1,21 +1,18 @@
 package ru.tinkoff.edu.domain.jdbc.impl;
 
-import lombok.AllArgsConstructor;
-import org.springframework.jdbc.core.DataClassRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
-import ru.tinkoff.edu.domain.jdbc.mapper.LinkMapper;
-import ru.tinkoff.edu.entity.Chat;
-import ru.tinkoff.edu.exception.DataNotFoundException;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
-import ru.tinkoff.edu.entity.Link;
-import ru.tinkoff.edu.domain.repo.LinkRepo;
-
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import ru.tinkoff.edu.domain.jdbc.mapper.LinkMapper;
+import ru.tinkoff.edu.domain.repo.LinkRepo;
+import ru.tinkoff.edu.entity.Link;
+import ru.tinkoff.edu.exception.DataNotFoundException;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
+
 
 @Repository
 @AllArgsConstructor
@@ -29,6 +26,7 @@ public class LinkImpl implements LinkRepo {
     private static final String REMOVE_BY_URL = "DELETE FROM link WHERE url = ?";
     private static final String UPDATE_LAST_DATE = "UPDATE link SET updated_at = now() WHERE id = ?";
     private static final String REMOVE_NOTFOUND = "Link not found.";
+    private static final long MINUTES = 10L;
 
     @Override
     public void updateLinkData(long linkId) {
@@ -50,7 +48,7 @@ public class LinkImpl implements LinkRepo {
         }
         Long id = link.getId();
         String name = link.getLinkName();
-        String url = link.getURL();
+        String url = link.getUrl();
         if (id == null || name == null || url == null) {
             throw new InvalidInputDataException();
         }
@@ -74,7 +72,7 @@ public class LinkImpl implements LinkRepo {
     public List<Link> getOldLinksListForUpdate() {
         return findAll().stream()
                 .filter(link -> link.getLastUpdateDate()
-                        .isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(10), ZoneOffset.UTC)))
+                        .isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(MINUTES), ZoneOffset.UTC)))
                 .toList();
     }
 

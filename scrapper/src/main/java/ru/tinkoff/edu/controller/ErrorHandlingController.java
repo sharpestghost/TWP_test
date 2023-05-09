@@ -1,15 +1,14 @@
 package ru.tinkoff.edu.controller;
 
+import java.util.Arrays;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import ru.tinkoff.edu.dto.response.ApiErrorResponse;
 import ru.tinkoff.edu.exception.ChatNotFoundException;
 import ru.tinkoff.edu.exception.DataNotFoundException;
 import ru.tinkoff.edu.exception.InvalidRequestException;
-import ru.tinkoff.edu.dto.response.ApiErrorResponse;
-
-import java.util.Arrays;
 
 @RestControllerAdvice
 public class ErrorHandlingController {

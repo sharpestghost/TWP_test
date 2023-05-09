@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class ResponseConverter {
     public static LinkResponse getLinkResponse(Link link) {
-        return new LinkResponse(link.getId(), URI.create(link.getURL()));
+        return new LinkResponse(link.getId(), URI.create(link.getUrl()));
     }
 
     public static ListLinksResponse getListLinksResponse(List<Link> links) {

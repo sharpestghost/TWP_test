@@ -12,8 +12,9 @@ import ru.tinkoff.edu.service.sender.SendUpdater;
 @Configuration
 @ConditionalOnProperty(prefix = "app", name = "use-queue", havingValue = "true")
 public class QueueProducerConfig {
+
     @Bean
     public SendUpdater linkUpdateSender(RabbitTemplate template, LinkChatService linkService, Queue queue) {
-        return new ScrapperQueueProducer( template, linkService, queue);
+        return new ScrapperQueueProducer(template, linkService, queue);
     }
 }

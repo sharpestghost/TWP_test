@@ -1,5 +1,11 @@
 package ru.tinkoff.edu.service.jpa;
 
+import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tinkoff.edu.converter.EntityConverter;
@@ -12,28 +18,19 @@ import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.service.LinkService;
 
-import java.net.URI;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 @RequiredArgsConstructor
 public class JpaLinkService implements LinkService {
     private final JpaChatRepo chatRepo;
     private final JpaLinkRepo linkRepo;
     private final JpaLCRepo linkChatRepo;
+
     @Transactional
     @Override
     public Link add(Long chatId, URI url) throws InvalidInputDataException {
         Chat chat = chatRepo.findById(chatId).orElse(null);
         boolean isPresent = linkRepo.findByLink(url.toString()).isPresent();
-        System.out.println("!!!!!!!!" + isPresent);
-        Link link = isPresent ? linkRepo.findByLink(url.toString()).orElse(null) :
-        linkRepo.save(EntityConverter.createLink(url));
-
+        Link link = isPresent ? linkRepo.findByLink(url.toString()).orElse(null)
+                : linkRepo.save(EntityConverter.createLink(url));
         if (chat == null || link == null || linkChatRepo.findByChatAndLink(chat, link).isPresent()) {
             throw new InvalidInputDataException();
         }

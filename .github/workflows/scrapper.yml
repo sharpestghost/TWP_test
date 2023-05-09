@@ -7,8 +7,6 @@ on:
       - ".github/workflows/**"
       - "pom.xml"
       - "checkstyle.xml"
-    paths-ignore:
-      - "scrapper/src/main/java/ru/tinkoff/edu/domain"
 
 env:
   REGISTRY: ghcr.io

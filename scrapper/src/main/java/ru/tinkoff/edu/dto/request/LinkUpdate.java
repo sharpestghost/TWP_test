@@ -1,8 +1,5 @@
 package ru.tinkoff.edu.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import java.net.URI;
 import java.util.List;
 

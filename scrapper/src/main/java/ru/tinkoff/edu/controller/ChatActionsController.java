@@ -13,6 +13,7 @@ import ru.tinkoff.edu.service.ChatService;
 public class ChatActionsController {
     private final ChatService chatService;
     private static final String TEXT_FIELD = "Lorem ipsum";
+
     public void createChat(@PathVariable long id) throws InvalidInputDataException {
             chatService.register(id, TEXT_FIELD);
     }

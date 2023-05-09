@@ -1,7 +1,13 @@
 package ru.tinkoff.edu.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -31,10 +37,10 @@ public class Follow {
     }
 
     public Long getChatId() {
-        return id.getChat_id();
+        return id.getChatId();
     }
 
     public Long getLinkId() {
-        return id.getLink_id();
+        return id.getLinkId();
     }
 }

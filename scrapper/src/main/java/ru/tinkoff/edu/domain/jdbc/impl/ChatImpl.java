@@ -1,16 +1,15 @@
 package ru.tinkoff.edu.domain.jdbc.impl;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import ru.tinkoff.edu.domain.repo.ChatRepo;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.entity.Link;
-
-import java.util.List;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
 
 @Repository
 @AllArgsConstructor
@@ -24,8 +23,9 @@ public class ChatImpl implements ChatRepo {
     private static final String SELECT_BY_ID = "SELECT * FROM chat WHERE id=?";
     private static final String REMOVE_BY_ID = "DELETE FROM chat WHERE id=?";
     private static final String REMOVE_BY_NAME = "DELETE FROM chat WHERE chatname=?";
-    private static final String SELECT_LINKS = "SELECT l.id id, l.linkname linkname, l.url url, l.updated_at updated_at" +
-            " FROM link l INNER JOIN link_chat lc WHERE lc.chat_id = ?";
+    private static final String SELECT_LINKS = "SELECT l.id id, l.linkname linkname, l.url url, l.updated_at updated_at"
+            + " FROM link l INNER JOIN link_chat lc WHERE lc.chat_id = ?";
+
     @Override
     public void register(Chat chat) throws InvalidInputDataException {
         if (chat == null) {

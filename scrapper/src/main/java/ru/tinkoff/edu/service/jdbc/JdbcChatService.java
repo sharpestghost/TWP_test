@@ -1,14 +1,12 @@
 package ru.tinkoff.edu.service.jdbc;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
-import ru.tinkoff.edu.entity.Chat;
-import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.domain.repo.ChatRepo;
+import ru.tinkoff.edu.entity.Chat;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.service.ChatService;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +35,5 @@ public class JdbcChatService implements ChatService {
     public List<Chat> findAll() {
         return chatRepo.findAll();
     }
-
 
 }

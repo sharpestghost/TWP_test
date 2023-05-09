@@ -1,17 +1,16 @@
 package ru.tinkoff.edu.service.jdbc;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.converter.EntityConverter;
-import ru.tinkoff.edu.entity.Follow;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
+import ru.tinkoff.edu.domain.repo.LinkChatRepo;
 import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.entity.LinkChat;
-import ru.tinkoff.edu.domain.repo.LinkChatRepo;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.service.LinkChatService;
 
-import java.util.List;
 @Service
 @AllArgsConstructor
 public class JdbcLinkChatService implements LinkChatService<LinkChat> {

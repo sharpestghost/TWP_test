@@ -24,7 +24,7 @@ public class BotUpdater {
         List<Long> chatIds = new ArrayList<>();
         List<Chat> chats = linkChatService.getChatsByLink(link.getId());
         chats.forEach((Chat c) -> chatIds.add(c.getId()));
-        LinkUpdate request = new LinkUpdate(link.getId(), URI.create(link.getURL()), UPDATE_OK,
+        LinkUpdate request = new LinkUpdate(link.getId(), URI.create(link.getUrl()), UPDATE_OK,
                 chatIds);
         botClient.postUpdate(request);
     }

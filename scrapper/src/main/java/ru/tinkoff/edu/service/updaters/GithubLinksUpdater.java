@@ -1,5 +1,6 @@
 package ru.tinkoff.edu.service.updaters;
 
+import java.time.OffsetDateTime;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.GithubRepo;
@@ -11,15 +12,12 @@ import ru.tinkoff.edu.service.LinkService;
 import ru.tinkoff.edu.service.LinkUpdater;
 import ru.tinkoff.edu.service.sender.SendUpdater;
 
-import java.time.OffsetDateTime;
-
-
 @AllArgsConstructor
 @Service
 public class GithubLinksUpdater implements LinkUpdater {
     private final LinkService linkService;
     private final SendUpdater updater;
-    private final String UPDATE_OK = "Link was succefully updated.";
+    private static final String UPDATE_OK = "Link was succefully updated.";
 
     @Override
     public void update(ParsedObject repo, Link link) {
@@ -31,6 +29,4 @@ public class GithubLinksUpdater implements LinkUpdater {
         }
         linkService.updateLinkData(link);
     }
-
-
 }

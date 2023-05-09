@@ -1,11 +1,11 @@
 package ru.tinkoff.edu.domain.jdbc.mapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.tinkoff.edu.entity.LinkChat;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 @Component
 public class LinkChatMapper implements RowMapper<LinkChat> {
     @Override

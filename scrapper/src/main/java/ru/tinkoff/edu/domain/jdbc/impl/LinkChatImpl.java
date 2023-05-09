@@ -75,8 +75,6 @@ public class LinkChatImpl implements LinkChatRepo {
         int result = template.update(REMOVE_CHATLINK, chatId, link.getId());
         if (result == 0) {
             throw new DataNotFoundException(INSERT_CHATLINK_ALREADYEXISTS);
-        } else {
-            System.out.println(REMOVE_OK);
         }
         return link;
     }

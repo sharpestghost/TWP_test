@@ -1,15 +1,12 @@
 package ru.tinkoff.edu.service.jpa;
 
-import lombok.AllArgsConstructor;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tinkoff.edu.domain.jpa.JpaChatRepo;
 import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.service.ChatService;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 public class JpaChatService implements ChatService {

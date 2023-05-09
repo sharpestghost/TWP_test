@@ -20,7 +20,7 @@ public class EntityConverter {
             throw new InvalidInputDataException();
         }
         Link link = new Link();
-        link.setURL(url);
+        link.setUrl(url);
         //temp
         link.setLinkName("test");
         if (object instanceof GithubRepo repo) {

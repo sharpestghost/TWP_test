@@ -1,5 +1,6 @@
 package ru.tinkoff.edu;
 
+import java.util.logging.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -10,9 +11,11 @@ import ru.tinkoff.edu.configuration.ApplicationConfig;
 @EnableScheduling
 @EnableConfigurationProperties(ApplicationConfig.class)
 public class ScrapperApplication {
+    private static final Logger LOGGER = Logger.getGlobal();
+
     public static void main(String[] args) {
         var ctx = SpringApplication.run(ScrapperApplication.class, args);
         ApplicationConfig config = ctx.getBean(ApplicationConfig.class);
-        System.out.println(config);
+        LOGGER.info(config.toString());
     }
 }
