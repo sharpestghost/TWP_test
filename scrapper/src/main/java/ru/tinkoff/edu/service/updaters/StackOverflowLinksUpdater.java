@@ -13,10 +13,10 @@ import ru.tinkoff.edu.service.sender.SendUpdater;
 
 @AllArgsConstructor
 @Service
-public class StackOverflowLinksUpdater implements LinkUpdater{
+public class StackOverflowLinksUpdater implements LinkUpdater {
     private final LinkService linkService;
     private final SendUpdater updater;
-    private final String UPDATE_OK = "Link was succefully updated.";
+    private static final String UPDATE_OK = "Link was succefully updated.";
 
 
     @Override

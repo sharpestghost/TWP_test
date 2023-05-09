@@ -1,5 +1,6 @@
 package ru.tinkoff.edu.domain.jdbc.impl;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,13 +12,11 @@ import ru.tinkoff.edu.domain.jdbc.mapper.LinkMapper;
 import ru.tinkoff.edu.domain.repo.ChatRepo;
 import ru.tinkoff.edu.domain.repo.LinkChatRepo;
 import ru.tinkoff.edu.domain.repo.LinkRepo;
-import ru.tinkoff.edu.exception.DataNotFoundException;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.entity.LinkChat;
-
-import java.util.List;
+import ru.tinkoff.edu.exception.DataNotFoundException;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
 
 @Repository
 @AllArgsConstructor
@@ -75,8 +74,6 @@ public class LinkChatImpl implements LinkChatRepo {
         int result = template.update(REMOVE_CHATLINK, chatId, link.getId());
         if (result == 0) {
             throw new DataNotFoundException(INSERT_CHATLINK_ALREADYEXISTS);
-        } else {
-            System.out.println(REMOVE_OK);
         }
         return link;
     }

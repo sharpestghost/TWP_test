@@ -10,6 +10,7 @@ import ru.tinkoff.edu.service.recipient.UpdateRecipient;
 @RequestMapping("/updates")
 public class UpdatesController {
     private UpdateRecipient updateRecipient;
+
     public void update(@RequestBody LinkUpdate linkUpdate) {
         updateRecipient.recieveUpdate(linkUpdate);
     }

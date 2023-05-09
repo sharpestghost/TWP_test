@@ -1,19 +1,15 @@
 package ru.tinkoff.edu.client;
 
-import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
+import java.time.Duration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
-import ru.tinkoff.edu.GithubRepo;
-import ru.tinkoff.edu.dto.response.QuestionResponse;
 import ru.tinkoff.edu.dto.response.RepoResponse;
 
-import java.time.Duration;
-import java.time.OffsetDateTime;
 
 public class GithubClient {
 
     private static final String GITHUB_URL = "https://api.github.com";
+    public static final long SECONDS_FOR_UPDATE = 30;
     private final WebClient webClient;
 
     public GithubClient() {
@@ -40,7 +36,7 @@ public class GithubClient {
                 .uri("/repos/{user}/{repo}", user, repo)
                 .retrieve()
                 .bodyToMono(RepoResponse.class)
-                .timeout(Duration.ofSeconds(15))
+                .timeout(Duration.ofSeconds(SECONDS_FOR_UPDATE))
                 .block();
     }
 

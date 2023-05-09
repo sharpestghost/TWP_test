@@ -1,14 +1,13 @@
 package ru.tinkoff.edu.domain.jdbc.mapper;
 
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
-import ru.tinkoff.edu.entity.Chat;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Date;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
+import ru.tinkoff.edu.entity.Chat;
 
 @Component
 public class ChatMapper implements RowMapper<Chat> {

@@ -1,21 +1,20 @@
 package ru.tinkoff.edu.service.jooq;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tinkoff.edu.converter.EntityConverter;
 import ru.tinkoff.edu.domain.jooq.Tables;
-import ru.tinkoff.edu.exception.DataNotFoundException;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.entity.Chat;
 import ru.tinkoff.edu.entity.Link;
 import ru.tinkoff.edu.entity.LinkChat;
+import ru.tinkoff.edu.exception.DataNotFoundException;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
 import ru.tinkoff.edu.service.LinkChatService;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Service
 @AllArgsConstructor

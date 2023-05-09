@@ -1,6 +1,5 @@
 package ru.tinkoff.edu.service.sender;
 
-import ru.tinkoff.edu.dto.request.LinkUpdate;
 import ru.tinkoff.edu.entity.Link;
 
 public interface SendUpdater {

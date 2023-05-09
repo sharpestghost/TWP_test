@@ -1,17 +1,15 @@
 package ru.tinkoff.edu.service.jdbc;
 
-import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
-import ru.tinkoff.edu.converter.EntityConverter;
-import ru.tinkoff.edu.exception.InvalidInputDataException;
-import ru.tinkoff.edu.entity.Link;
-import ru.tinkoff.edu.domain.repo.ChatRepo;
-import ru.tinkoff.edu.domain.repo.LinkRepo;
-import ru.tinkoff.edu.service.LinkService;
-
 import java.net.URI;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import ru.tinkoff.edu.converter.EntityConverter;
+import ru.tinkoff.edu.domain.repo.ChatRepo;
+import ru.tinkoff.edu.domain.repo.LinkRepo;
+import ru.tinkoff.edu.entity.Link;
+import ru.tinkoff.edu.exception.InvalidInputDataException;
+import ru.tinkoff.edu.service.LinkService;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +27,7 @@ public class JdbcLinkService implements LinkService {
     @Override
     public Link remove(Long chatId, URI url) {
         Link link = EntityConverter.createLink(url.toString());
-        linkRepo.remove(link.getURL());
+        linkRepo.remove(link.getUrl());
         return link;
     }
 

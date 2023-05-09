@@ -6,12 +6,11 @@ import com.pengrad.telegrambot.model.BotCommand;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.request.SetMyCommands;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import ru.tinkoff.edu.bot.commands.CommandInfo;
 import ru.tinkoff.edu.bot.commands.InputCommandsHandler;
 import ru.tinkoff.edu.scrapperlink.dto.request.LinkUpdate;
-
-import java.util.List;
 
 public class Bot {
     public static TelegramBot telegramBot;
@@ -32,20 +31,21 @@ public class Bot {
         }
         telegramBot.execute(new SetMyCommands(commands));
         telegramBot.setUpdatesListener(updates -> {
-            for (Update update : updates)
+            for (Update update : updates) {
                 telegramBot.execute(processUpdate(update));
-
+            }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
     }
 
     public SendMessage processUpdate(Update update) {
         long id = update.message().chat().id();
-        for (CommandInfo command : supportedCommands)
+        for (CommandInfo command : supportedCommands) {
             if (command.supports(update)) {
                 inputHandler.addLastAction(id, command);
                 return command.handle(update);
             }
+        }
         CommandInfo lastCommand = inputHandler.checkLastAction(id);
         if (lastCommand != null) {
             return lastCommand.handle(update);

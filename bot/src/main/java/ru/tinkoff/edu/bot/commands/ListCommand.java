@@ -3,11 +3,10 @@ package ru.tinkoff.edu.bot.commands;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
-import lombok.AllArgsConstructor;
-import ru.tinkoff.edu.bot.logic.LinkProcessing;
-
 import java.net.URI;
 import java.util.Set;
+import lombok.AllArgsConstructor;
+import ru.tinkoff.edu.bot.logic.LinkProcessing;
 
 @AllArgsConstructor
 public class ListCommand implements CommandInfo {
@@ -31,9 +30,9 @@ public class ListCommand implements CommandInfo {
         Message msg = update.message();
         Long chatId = msg.chat().id();
         if (supports(update)) {
-            Set<URI> response = LinkProcessing.getLinks();
-            StringBuilder linksStringBuilder = new StringBuilder(!response.isEmpty() ?
-                    LIST_MESSAGE : SPECIAL_MESSAGE);
+            Set<URI> response = LinkProcessing.getUris();
+            StringBuilder linksStringBuilder = new StringBuilder(!response.isEmpty()
+                    ? LIST_MESSAGE : SPECIAL_MESSAGE);
                 for (URI link : response) {
                     linksStringBuilder.append("\n").append(link.toString());
                 }

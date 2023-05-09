@@ -5,6 +5,7 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.AllArgsConstructor;
 import ru.tinkoff.edu.bot.logic.LinkProcessing;
+
 @AllArgsConstructor
 public class UntrackCommand implements CommandInfo {
     private static final String UNTRACK_MESSAGE = "Send the link as a reply to remove this from tracking list";

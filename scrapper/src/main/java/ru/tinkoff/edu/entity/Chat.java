@@ -1,15 +1,19 @@
 package ru.tinkoff.edu.entity;
 
-import lombok.*;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.OffsetDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="chat")
+@Table(name = "chat")
 public class Chat {
     @Id
     @Column(name = "id")

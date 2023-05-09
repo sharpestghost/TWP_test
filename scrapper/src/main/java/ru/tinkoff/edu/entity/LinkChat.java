@@ -1,9 +1,12 @@
 package ru.tinkoff.edu.entity;
 
 import jakarta.persistence.Embeddable;
-import lombok.*;
-
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Embeddable
 @EqualsAndHashCode
@@ -12,6 +15,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class LinkChat implements Serializable {
-    private Long chat_id;
-    private Long link_id;
+    private Long chatId;
+    private Long linkId;
 }

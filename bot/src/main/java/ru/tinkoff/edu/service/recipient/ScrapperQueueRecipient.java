@@ -10,6 +10,7 @@ import ru.tinkoff.edu.scrapperlink.dto.request.LinkUpdate;
 @RabbitListener(queues = "${app.queue-name}")
 public class ScrapperQueueRecipient implements UpdateRecipient {
     private final Bot bot;
+
     @RabbitHandler
     @Override
     public void recieveUpdate(LinkUpdate request) {

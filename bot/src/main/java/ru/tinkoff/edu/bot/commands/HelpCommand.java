@@ -5,6 +5,7 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.AllArgsConstructor;
 import ru.tinkoff.edu.scrapperlink.client.ScrapperClient;
+
 @AllArgsConstructor
 public class HelpCommand implements CommandInfo {
     private final ScrapperClient client;
@@ -26,7 +27,7 @@ public class HelpCommand implements CommandInfo {
         Message msg = update.message();
         if (supports(update)) {
             StringBuilder helpStringBuilder = new StringBuilder();
-            for (CommandInfo command :BotCommandsList.getCommands().values()) {
+            for (CommandInfo command : BotCommandsList.getCommands().values()) {
                 helpStringBuilder.append(command.toString()).append("\n");
             }
         } else {
