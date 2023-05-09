@@ -23,6 +23,7 @@
         <junit.version>5.7.4</junit.version>
         <testcontainers.version>1.18.0</testcontainers.version>
         <org-jooq.version>3.17.12</org-jooq.version>
+        <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
         <spring-boot-starter-amqp.version>3.0.6</spring-boot-starter-amqp.version>
     </properties>
     <dependencyManagement>
@@ -130,7 +131,6 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <configLocation>checkstyle.xml</configLocation>
                         <release>17</release>
                         <parameters>true</parameters>
                     </configuration>
