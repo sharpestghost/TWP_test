@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class RabbitMqConfig {
     private final ApplicationConfig config;
-    public final String QUEUE_MESSAGES_DLQ = config.queueName() + ".dlx";
 
     @Bean
     public DirectExchange directExchange() {
@@ -21,7 +20,7 @@ public class RabbitMqConfig {
     @Bean("queueBean")
     public Queue queue() {
         return QueueBuilder.nonDurable(config.queueName())
-                .withArgument("x-dead-letter-exchange", QUEUE_MESSAGES_DLQ)
+                .withArgument("x-dead-letter-exchange", config.queueName() + ".dlx")
                 .build();
     }
 

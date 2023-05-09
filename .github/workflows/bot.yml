@@ -7,7 +7,8 @@ on:
       - 'hw8'
       - 'hw7'
     paths:
-      - ".github/workflows/bot.yml"
+      - "bot/**"
+        - ".github/workflows/**"
 
 jobs:
   build:
