@@ -1,5 +1,3 @@
 FROM openjdk:17
-ARG JAR_FILE=./scrapper/target/*SNAPSHOT.jar
-WORKDIR /app
-COPY ${JAR_FILE} scrapper.jar
-ENTRYPOINT ["java","-jar","scrapper.jar"]
+WORKDIR target/scrapper:1.0.0.jar scrapper.jar
+CMD ["java", "-jar", "scrapper.jar"]
