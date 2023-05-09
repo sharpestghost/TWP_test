@@ -10,6 +10,7 @@ on:
       - "bot/**"
       - ".github/workflows/**"
       - "pom.xml"
+      - "checkstyle.xml"
 
 env:
   REGISTRY: ghcr.io
