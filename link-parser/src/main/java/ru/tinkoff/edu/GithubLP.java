@@ -4,7 +4,7 @@ import java.net.URL;
 
 public class GithubLP extends Parser {
 
-    public GithubLP (Parser nextParser) {
+    public GithubLP(Parser nextParser) {
         super(nextParser);
     }
 
@@ -16,10 +16,12 @@ public class GithubLP extends Parser {
                 String user = arr[1];
                 String repo = arr[2];
                 return new GithubRepo(user, repo);
+            } else {
+                return null;
             }
-            else return null;
+        } else {
+            return null;
         }
-        else return null;
     }
 }
 
