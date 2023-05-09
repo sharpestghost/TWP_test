@@ -60,6 +60,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+          cache: maven
 
       - name: Check style
-        run: mvn -pl bot -am checkstyle:check
+        run: mvn -pl bot-app -am checkstyle:check
