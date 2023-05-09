@@ -22,9 +22,10 @@ import java.util.logging.Level;
 
 
 @SpringBootTest
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+//@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @ContextConfiguration(classes = {DBConfiguration.class, TestConfiguration.class})
 public class JdbcChatTest extends IntegrationEnviroment {
+    /*
     private final ChatImpl chatImpl;
     private final JdbcTemplate jdbcTemplate;
     private static final String ADD_TEMPLATE = "INSERT INTO chat(id, chatname, description) VALUES (?, ?, ?)";
@@ -32,7 +33,7 @@ public class JdbcChatTest extends IntegrationEnviroment {
     private static final String SELECT_COUNT = "SELECT COUNT * FROM chat";
     private Chat chat;
 
-/*
+
     @Test
     @Transactional
     @Rollback
