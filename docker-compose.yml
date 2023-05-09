@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+  postgresql:
+    container_name: twp
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpword
+      POSTGRES_DB: postgres
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+    ports:
+    - 5432:5432
+    networks:
+    - backend
+   
+  liquibase-migrations:
+    image: liquibase/liquibase:4.18
+    depends_on:
+       - postgresql
+    command:
+       - --hub-mode=off
+       - --changelog-file=master.xml
+       - --driver=org.postgresql.Driver
+       - --url=jdbc:postgresql://postgresql:5432/scrapper
+       - --username=admin
+       - --password=secretpword
+       - update
+    volumes:
+       - ./migrations:/liquibase/changelog
+    networks:
+       - backend
+
+  RabbitMQ:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  volumes:
+    rabbitmq_data:
+      driver: local
+
+
+networks:
+  backend:
+
+volumes:
+  postgres-data:

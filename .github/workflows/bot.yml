@@ -1,0 +1,30 @@
+name: Bot CI
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'hw8'
+      - 'hw7'
+    paths:
+      - ".github/workflows/bot.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Package
+        run: mvn package -pl bot -am
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          rsername: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: docker build -f bot.Dockerfile -t ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}
+      - name: Push image
+        run: mvn --batch-mode deploy
+        env: docker push ${{ env.REGISTRY}}/${{ env.AUTHOR }}/${{ env.IMAGE_NAME }}

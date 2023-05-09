@@ -1,0 +1,33 @@
+name: Scr CI
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'hw8'
+      - 'hw7'
+    paths:
+      - ".github/workflows/scrapper.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          rsername: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: docker build -f bot.Dockerfile -t ${{ env.REGISTRY}}/${{ env.AUTHOR }}/scrapper:latest
+      - name: Push image
+        run: mvn --batch-mode deploy
+        env: docker push ${{ env.REGISTRY}}/${{ env.AUTHOR }}/scrapper:latest
